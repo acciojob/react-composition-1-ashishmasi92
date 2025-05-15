@@ -3,17 +3,17 @@ import React, { useState } from "react";
 
 
 const Tabs = ({obj})=>{
-let [current,setCurrent] = useState("Tab 1")
+let [current,setCurrent] = useState("")
     return(
         <>
         <ul>
             {obj.map((v)=>{
                 return <li onClick={()=>{
-                    setCurrent(v.title)
+                    setCurrent(v.content)
                 }} >{v.title} </li>
             })}
         </ul>
-        <h2>This is the content for {current}.</h2>
+        <p>{current}.</p>
         </>
     )
 }
