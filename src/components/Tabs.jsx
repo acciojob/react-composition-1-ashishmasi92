@@ -3,17 +3,18 @@ import React, { useState } from "react";
 
 
 const Tabs = ({obj})=>{
-let [current,setCurrent] = useState("")
+let [current,setCurrent] = useState(0)
     return(
         <>
         <ul>
-            {obj.map((v)=>{
-                return <li onClick={()=>{
-                    setCurrent(v.content)
-                }} >{v.title} </li>
+            {obj.map((v,i)=>{
+                return <li key={i} onClick={()=>{
+                    setCurrent(i)
+
+                }} data-testid={`tab-${i}`} >{v.title} </li>
             })}
         </ul>
-        <p>{current}.</p>
+        <p>{obj[current].content}</p>
         </>
     )
 }
